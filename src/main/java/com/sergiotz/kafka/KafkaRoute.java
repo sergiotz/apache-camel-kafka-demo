@@ -17,7 +17,7 @@ public class KafkaRoute extends RouteBuilder {
 		from("timer://foo?period={{period}}")
 			.routeId("producer route")
 			.setBody(simple("This is first producer: ${id}"))
-			.to("kafka:{{producer.topic}}?partitionKey={{partitionValue}}&key=${id}")
+			.to("kafka:{{producer.topic}}?key=${id}")
 			.log("producer >>> ${body}");
 	}
 }
